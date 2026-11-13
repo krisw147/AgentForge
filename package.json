@@ -1,0 +1,20 @@
+{
+  "name": "agentforge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agent runtime and AgentOps control plane demo",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:main": "node scripts/dev.mjs --no-worker",
+    "dev:worker": "node scripts/worker.mjs",
+    "dev:mcp": "node mcp-servers/order-bridge/src/server.mjs",
+    "dev:mcp:http": "npm --prefix mcp-servers/order-server run start:http",
+    "dev:web": "npm --prefix apps/web run dev",
+    "build": "npm --prefix apps/web run build",
+    "test:api": ".venv\\Scripts\\python.exe -m pytest apps/api/tests",
+    "test:web": "npm --prefix apps/web run typecheck",
+    "smoke": "node scripts/smoke-test.mjs",
+    "smoke:run": "node scripts/smoke-test.mjs --run"
+  }
+}
+

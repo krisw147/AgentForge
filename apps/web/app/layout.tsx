@@ -1,0 +1,20 @@
+import type { Metadata } from "next";
+import { AppShell } from "@/components/AppShell";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "AgentForge · Agent 控制平面",
+  description: "Agent 运行、审批、追踪与评测平台"
+};
+
+export default function RootLayout({
+  children
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="zh-CN">
+      <body>
+        <AppShell>{children}</AppShell>
+      </body>
+    </html>
+  );
+}

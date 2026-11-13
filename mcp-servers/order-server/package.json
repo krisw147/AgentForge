@@ -1,0 +1,16 @@
+{
+  "name": "@agentforge/order-mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "start:http": "node src/http-server.mjs",
+    "test": "node scripts/test-client.mjs && node scripts/test-streamable-client.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "3.25.76"
+  }
+}
+

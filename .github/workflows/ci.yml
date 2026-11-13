@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: apps/api/requirements.txt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install API dependencies
+        run: pip install -r apps/api/requirements.txt
+
+      - name: Run API tests
+        run: pytest apps/api/tests -q
+
+      - name: Install web dependencies
+        working-directory: apps/web
+        run: npm ci
+
+      - name: Typecheck and build web
+        working-directory: apps/web
+        run: |
+          npm run typecheck
+          npm run build
+
+      - name: Install MCP server dependencies
+        working-directory: mcp-servers/order-server
+        run: npm ci
+
+      - name: Install MCP bridge dependencies
+        working-directory: mcp-servers/order-bridge
+        run: npm ci
+
+      - name: Test MCP transports
+        working-directory: mcp-servers/order-server
+        run: npm test
+
+      - name: Test MCP bridge
+        working-directory: mcp-servers/order-bridge
+        run: npm test
+
+      - name: Validate production Compose
+        run: docker compose -f docker-compose.production.yml config --quiet

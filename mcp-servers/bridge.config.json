@@ -1,0 +1,35 @@
+{
+  "servers": [
+    {
+      "id": "order-server",
+      "name": "本地订单 MCP",
+      "transport": "stdio",
+      "command": "node",
+      "args": ["src/server.mjs"],
+      "cwd": "order-server",
+      "allowedTools": [
+        "get_order",
+        "search_policy",
+        "issue_refund",
+        "create_ticket"
+      ],
+      "requiresApproval": ["issue_refund"],
+      "timeoutMs": 15000
+    },
+    {
+      "id": "order-http-server",
+      "name": "远程订单 MCP（HTTP）",
+      "transport": "streamable-http",
+      "url": "${MCP_ORDER_HTTP_URL:-http://127.0.0.1:8766/mcp}",
+      "allowedTools": [
+        "get_order",
+        "search_policy",
+        "issue_refund",
+        "create_ticket"
+      ],
+      "requiresApproval": ["issue_refund"],
+      "timeoutMs": 15000
+    }
+  ]
+}
+
