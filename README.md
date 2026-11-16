@@ -46,20 +46,16 @@ AgentForge 是一个可本地运行的 Agent Runtime 与 AgentOps 控制台示�
 - Node.js 20 或更高版本
 - npm 10 或更高版本
 
-### 1. 安装 Python 依赖
+### 1. 一键安装全部依赖
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r apps\api\requirements.txt
+npm run setup
 ```
 
-### 2. 安装前端依赖
+该命令会创建 Python 虚拟环境，并安装 API、Web、stdio MCP 和 HTTP MCP
+所需的全部依赖。如果系统无法直接找到 Python，可先设置 `PYTHON` 环境变量。
 
-```powershell
-npm install --prefix apps/web
-```
-
-### 3. 启动前后端
+### 2. 启动完整平台
 
 ```powershell
 npm run dev

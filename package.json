@@ -4,6 +4,7 @@
   "private": true,
   "description": "Agent runtime and AgentOps control plane demo",
   "scripts": {
+    "setup": "node scripts/setup.mjs",
     "dev": "node scripts/dev.mjs",
     "dev:main": "node scripts/dev.mjs --no-worker",
     "dev:worker": "node scripts/worker.mjs",

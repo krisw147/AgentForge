@@ -8,9 +8,8 @@ import traceback
 from datetime import datetime
 from typing import Optional
 
-from .db import SessionLocal
+from .db import Base, SessionLocal, engine
 from .migrations import ensure_schema
-from .db import engine
 from .models import Run
 from .services.job_queue import RunQueue, TERMINAL_STATUSES, new_worker_id
 from .services.runtime import AgentRuntime
@@ -158,6 +157,7 @@ class RuntimeWorker:
                 db.close()
 
     def run_forever(self) -> None:
+        Base.metadata.create_all(bind=engine)
         ensure_schema(engine)
         logger.info("runtime worker started: %s", self.worker_id)
 
