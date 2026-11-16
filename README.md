@@ -10,7 +10,6 @@ AgentForge 是一个可本地运行的 Agent Runtime 与 AgentOps 控制台示�
 - [5 分钟演示脚本](docs/DEMO_SCRIPT.md)
 - [项目复盘与简历描述](docs/PORTFOLIO_CASE_STUDY.md)
 - [项目讲解模板](docs/PROJECT_PRESENTATION_TEMPLATE.md)
-- [面试题库与参考答案](docs/INTERVIEW_QA.md)
 
 ## 演示
 
