@@ -10,6 +10,27 @@ AgentForge 是一个可本地运行的 Agent Runtime 与 AgentOps 控制台示�
 - [5 分钟演示脚本](docs/DEMO_SCRIPT.md)
 - [项目复盘与简历描述](docs/PORTFOLIO_CASE_STUDY.md)
 
+## 演示
+
+![AgentForge 核心功能演示](docs/assets/demo.gif)
+
+这段演示覆盖工作区登录、运行总览、故障注入、持久化 Trace、人工审批、
+stdio 与 Streamable HTTP MCP 接入，以及版本评测发布门禁。
+
+### 核心界面
+
+| 运行总览 | Agent Playground |
+|:---:|:---:|
+| <img src="docs/assets/screenshots/dashboard.png" width="100%" alt="AgentForge 运行总览"> | <img src="docs/assets/screenshots/playground.png" width="100%" alt="AgentForge Playground 故障注入"> |
+
+| 持久化执行 Trace | 人工审批检查点 |
+|:---:|:---:|
+| <img src="docs/assets/screenshots/trace-recovery.png" width="100%" alt="AgentForge 执行 Trace 与恢复记录"> | <img src="docs/assets/screenshots/approval-pending.png" width="100%" alt="AgentForge 人工审批与检查点"> |
+
+| MCP 双传输接入 | 评测与发布门禁 |
+|:---:|:---:|
+| <img src="docs/assets/screenshots/mcp-tools.png" width="100%" alt="AgentForge MCP 工具仓库"> | <img src="docs/assets/screenshots/evaluation-gate.png" width="100%" alt="AgentForge 评测与发布门禁"> |
+
 ## 当前功能
 
 - Agent 注册表、版本管理和系统提示词管理
